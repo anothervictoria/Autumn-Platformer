@@ -5391,7 +5391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6222417f88eeb4fc9be6ae2e1b3b4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3
+  runSpeed: 4
+  jumpForce: 10
 --- !u!1001 &6216961947041658507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5466,6 +5467,10 @@ PrefabInstance:
     - target: {fileID: 6917893249883278420, guid: cdfea7a56195e4225912b3dc04368b34, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917893249883278420, guid: cdfea7a56195e4225912b3dc04368b34, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdfea7a56195e4225912b3dc04368b34, type: 3}

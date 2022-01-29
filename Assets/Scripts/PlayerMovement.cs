@@ -10,12 +10,21 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator playerAnimator;
     [SerializeField] float runSpeed = 10f;
+    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float climbingSpeed = 3f;
+    LayerMask ground;
+    LayerMask stairs;
+    BoxCollider2D playerCollider;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        ground = LayerMask.GetMask("Ground");
+        stairs = LayerMask.GetMask("Stairs");
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -28,7 +37,15 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
+        Debug.Log(moveInput);        
+    }
+
+    void OnJump(InputValue value)
+    {      
+        if (value.isPressed && playerCollider.IsTouchingLayers(ground))
+        {
+            rb.velocity += new Vector2(0f, jumpForce);
+        }
     }
 
     void Run()
@@ -49,4 +66,15 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
         }      
     }
+
+    void OnClimb(InputValue value)
+    {
+        if(value.isPressed && playerCollider.IsTouchingLayers(stairs))
+        {
+            Debug.Log(playerCollider.IsTouchingLayers(stairs));
+            rb.velocity += new Vector2(0f, climbingSpeed);
+            playerAnimator.SetBool("isClimbing", true);
+        }
+    }
+
 }
