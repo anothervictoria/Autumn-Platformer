@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     LayerMask ground;
     LayerMask stairs;
     BoxCollider2D playerCollider;
+    float gravityScaleAtStart;
     
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         ground = LayerMask.GetMask("Ground");
         stairs = LayerMask.GetMask("Stairs");
         playerCollider = GetComponent<BoxCollider2D>();
+        gravityScaleAtStart = rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
+        Climb();
     }
 
     void OnMove(InputValue value)
@@ -45,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed && playerCollider.IsTouchingLayers(ground))
         {
             rb.velocity += new Vector2(0f, jumpForce);
+            playerAnimator.SetBool("isRunning", true);
         }
     }
 
@@ -67,14 +71,20 @@ public class PlayerMovement : MonoBehaviour
         }      
     }
 
-    void OnClimb(InputValue value)
+    void Climb()
     {
-        if(value.isPressed && playerCollider.IsTouchingLayers(stairs))
+        if (!playerCollider.IsTouchingLayers(stairs))
         {
-            Debug.Log(playerCollider.IsTouchingLayers(stairs));
-            rb.velocity += new Vector2(0f, climbingSpeed);
-            playerAnimator.SetBool("isClimbing", true);
+            rb.gravityScale = gravityScaleAtStart;            
+            return;
         }
+
+        Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbingSpeed);        
+        rb.velocity = climbVelocity;
+        rb.gravityScale = 0f;
+        bool playerHasVerticalSpeed = Mathf.Abs(rb.velocity.y) > Mathf.Epsilon;
+        playerAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+
     }
 
 }
