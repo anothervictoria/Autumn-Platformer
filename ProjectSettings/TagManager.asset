@@ -15,7 +15,7 @@ TagManager:
   - Stairs
   - Player
   - Background
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Stairs
     uniqueID: 604013023
+    locked: 0
+  - name: Enemy
+    uniqueID: 2679230459
     locked: 0
   - name: Player
     uniqueID: 541616877

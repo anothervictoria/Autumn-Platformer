@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbingSpeed = 3f;
     LayerMask ground;
     LayerMask stairs;
-    BoxCollider2D playerCollider;
+    LayerMask enemy;
+    BoxCollider2D bodyCollider;
+    CapsuleCollider2D feetCollider;
     float gravityScaleAtStart;
+    bool isAlive = true;
     
 
     // Start is called before the first frame update
@@ -25,27 +28,33 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         ground = LayerMask.GetMask("Ground");
         stairs = LayerMask.GetMask("Stairs");
-        playerCollider = GetComponent<BoxCollider2D>();
+        enemy = LayerMask.GetMask("Enemy");
+        bodyCollider = GetComponent<BoxCollider2D>();
+        feetCollider = GetComponent<CapsuleCollider2D>();
         gravityScaleAtStart = rb.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!isAlive) { return; }
         Run();
         FlipSprite();
         Climb();
+        Die();
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);        
     }
 
     void OnJump(InputValue value)
-    {      
-        if (value.isPressed && playerCollider.IsTouchingLayers(ground))
+    {
+        if (!isAlive) { return; }
+        if (value.isPressed && feetCollider.IsTouchingLayers(ground))
         {
             rb.velocity += new Vector2(0f, jumpForce);
             playerAnimator.SetBool("isRunning", true);
@@ -73,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Climb()
     {
-        if (!playerCollider.IsTouchingLayers(stairs))
+        if (!bodyCollider.IsTouchingLayers(stairs))
         {
             rb.gravityScale = gravityScaleAtStart;            
             return;
@@ -85,6 +94,14 @@ public class PlayerMovement : MonoBehaviour
         bool playerHasVerticalSpeed = Mathf.Abs(rb.velocity.y) > Mathf.Epsilon;
         playerAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
 
+    }
+
+    void Die()
+    {
+        if (bodyCollider.IsTouchingLayers(enemy))
+        {
+            isAlive = false;
+        }
     }
 
 }
