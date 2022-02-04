@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Background
   - Enemy
-  - 
-  - 
+  - Hazard
+  - Bullet
   - 
   - 
   - 
@@ -47,11 +47,14 @@ TagManager:
   - name: Water
     uniqueID: 279107493
     locked: 0
-  - name: Platform Layer
-    uniqueID: 3583863213
-    locked: 0
   - name: Stairs
     uniqueID: 604013023
+    locked: 0
+  - name: Hazard
+    uniqueID: 403150825
+    locked: 0
+  - name: Platform Layer
+    uniqueID: 3583863213
     locked: 0
   - name: Enemy
     uniqueID: 2679230459

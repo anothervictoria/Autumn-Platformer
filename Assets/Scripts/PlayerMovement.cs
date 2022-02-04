@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float climbingSpeed = 3f;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
     LayerMask ground;
     LayerMask stairs;
     LayerMask enemy;
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         ground = LayerMask.GetMask("Ground");
         stairs = LayerMask.GetMask("Stairs");
-        enemy = LayerMask.GetMask("Enemy");
+        enemy = LayerMask.GetMask("Enemy", "Hazard");
         bodyCollider = GetComponent<BoxCollider2D>();
         feetCollider = GetComponent<CapsuleCollider2D>();
         gravityScaleAtStart = rb.gravityScale;
@@ -42,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         Climb();
         Die();
+    }
+
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) { return; }
+        Instantiate(bullet, gun.position, transform.rotation);
     }
 
     void OnMove(InputValue value)
@@ -77,22 +86,23 @@ public class PlayerMovement : MonoBehaviour
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
-        }      
+        }
+        Debug.Log($"flip sprite {transform.localScale.x}");
     }
 
     void Climb()
     {
         if (!bodyCollider.IsTouchingLayers(stairs))
         {
-            rb.gravityScale = gravityScaleAtStart;            
+            rb.gravityScale = gravityScaleAtStart;
+            playerAnimator.SetBool("isClimbing", false);
             return;
         }
 
         Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbingSpeed);        
         rb.velocity = climbVelocity;
-        rb.gravityScale = 0f;
-        bool playerHasVerticalSpeed = Mathf.Abs(rb.velocity.y) > Mathf.Epsilon;
-        playerAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+        rb.gravityScale = 0f;        
+        playerAnimator.SetBool("isClimbing", true);
 
     }
 
@@ -101,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         if (bodyCollider.IsTouchingLayers(enemy))
         {
             isAlive = false;
+            playerAnimator.SetTrigger("Dying");
+            rb.velocity = deathKick;
         }
     }
 
