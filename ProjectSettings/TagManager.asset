@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - Hazard
   - Bullet
-  - 
+  - Exit
   - 
   - 
   - 
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Platform Layer
     uniqueID: 3583863213
+    locked: 0
+  - name: Exit
+    uniqueID: 3260044687
     locked: 0
   - name: Enemy
     uniqueID: 2679230459
