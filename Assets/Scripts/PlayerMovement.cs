@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
         }
-        Debug.Log($"flip sprite {transform.localScale.x}");
+        //Debug.Log($"flip sprite {transform.localScale.x}");
     }
 
     void Climb()
@@ -113,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             playerAnimator.SetTrigger("Dying");
             rb.velocity = deathKick;
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
     }
 

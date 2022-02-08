@@ -7,6 +7,7 @@ public class Exit : MonoBehaviour
 {
     int currentScene;
     int nextScene;
+    bool isInside;
 
     private void Start()
     {
@@ -16,14 +17,17 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !isInside)
         {
-            StartCoroutine(LoadNextScene());            
+
+            StartCoroutine(LoadNextScene());
+            isInside = true;
         }
     }
 
     IEnumerator LoadNextScene()
     {
+        Debug.Log("Test");
         yield return new WaitForSeconds(2f);
 
         if (nextScene == SceneManager.sceneCountInBuildSettings)
@@ -31,6 +35,7 @@ public class Exit : MonoBehaviour
             nextScene = 0;
         }
 
+        FindObjectOfType<ScenePersist>().RestartPersist();
         SceneManager.LoadScene(nextScene);
     }
 }

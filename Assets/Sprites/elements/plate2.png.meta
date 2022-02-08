@@ -1,7 +1,28 @@
 fileFormatVersion: 2
 guid: 9d2225ab1b7f443c9ac3581a8e295343
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4918051729378971685
+    second: plate2_0
+  - first:
+      213: 4961410350249074962
+    second: plate2_1
+  - first:
+      213: -1018097552644062578
+    second: plate2_2
+  - first:
+      213: 6504241938130509213
+    second: plate2_3
+  - first:
+      213: -9015860508524661500
+    second: plate2_4
+  - first:
+      213: 1925055857946559627
+    second: plate2_5
+  - first:
+      213: -3051744952104520981
+    second: plate2_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +62,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,7 +134,181 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: plate2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 514.5, y: -50.5}
+        - {x: 514.5, y: 64.5}
+        - {x: 141.5, y: 64.5}
+        - {x: 129.5, y: 34.5}
+        - {x: 128.5, y: 21.5}
+        - {x: 128.5, y: 19.5}
+        - {x: 128.5, y: 27.5}
+        - {x: 99.5, y: 64.5}
+        - {x: -103.5, y: 64.5}
+        - {x: -123.5, y: 36.5}
+        - {x: -128.5, y: 23.5}
+        - {x: -127.5, y: 19.5}
+        - {x: -129.5, y: 24.5}
+        - {x: -140.5, y: 44.5}
+        - {x: -157.5, y: 64.5}
+        - {x: -369.5, y: 64.5}
+        - {x: -386.5, y: 23.5}
+        - {x: -385.5, y: 19.5}
+        - {x: -387.5, y: 24.5}
+        - {x: -397.5, y: 47.5}
+        - {x: -418.5, y: 64.5}
+        - {x: -478.5, y: 64.5}
+        - {x: -490.5, y: 61.5}
+        - {x: -514.5, y: 34.5}
+        - {x: -514.5, y: -55.5}
+        - {x: -488.5, y: -64.5}
+        - {x: 490.5, y: -64.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52011acadfd604440800000000000000
+      internalID: 4918051729378971685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211ea874d687ad440800000000000000
+      internalID: 4961410350249074962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82c4f38badfed1f0800000000000000
+      internalID: -1018097552644062578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d977fe495b34a50800000000000000
+      internalID: 6504241938130509213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_4
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4053ae4b2aa31e280800000000000000
+      internalID: -9015860508524661500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_5
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8480b97a1c27ba10800000000000000
+      internalID: 1925055857946559627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate2_6
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be2f7b8822606a5d0800000000000000
+      internalID: -3051744952104520981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
