@@ -45,12 +45,13 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            ResetGameSession();            
         }
     }
 
     private void ResetGameSession()
     {
+        FindObjectOfType<ScenePersist>().RestartPersist();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
     }

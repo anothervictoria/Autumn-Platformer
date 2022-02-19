@@ -2545,7 +2545,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Candy Beans SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: GLOW_ON UNDERLAY_ON
+  m_ShaderKeywords: UNDERLAY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -2590,10 +2590,10 @@ Material:
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.18
-    - _GlowOffset: 0.02
-    - _GlowOuter: 0.22
-    - _GlowPower: 0.12
+    - _GlowInner: 0.45
+    - _GlowOffset: 0.51
+    - _GlowOuter: 0.7
+    - _GlowPower: 0
     - _GradientScale: 6
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -2605,7 +2605,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioB: 0.559573
     - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
@@ -2631,9 +2631,9 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.6886792, g: 0.13052168, b: 0, a: 0.5}
+    - _GlowColor: {r: 0, g: 0, b: 0, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.509434, g: 0.16100036, b: 0.41085666, a: 1}
+    - _OutlineColor: {r: 0.8301887, g: 0.21537916, b: 0.6574893, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
